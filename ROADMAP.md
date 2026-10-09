@@ -1,5 +1,22 @@
 # DevOps Learning Roadmap
 
+## Current Progress
+
+Status: foundational setup and documentation are underway.
+
+- [x] Initialize the local Git repository and GitHub remote.
+- [x] Publish the initial repository structure.
+- [x] Audit the lab hardware, storage devices, and filesystem.
+- [x] Document storage risks and the recovery plan.
+- [ ] Complete the clean OS installation and verify the resulting system.
+- [ ] Add reproducible Linux administration labs.
+- [ ] Build Bash and Python automation exercises.
+- [ ] Implement Docker-based services and document their operation.
+- [ ] Develop an integrated, end-to-end portfolio project.
+
+Checklist items should be marked complete only after the work has been performed and verified. Update this section as milestones are achieved.
+
+
 ## Phase 1 — Linux Foundations
 
 - Linux filesystem
