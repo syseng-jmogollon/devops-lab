@@ -5,6 +5,7 @@ This directory contains technical records supporting the DevOps Lab, including e
 ## Environment and Infrastructure
 
 - [Hardware and Operating Environment](03-hardware-and-operating-environment.md) — initial hardware inventory, operating-system details, SSD/HDD health assessment, Btrfs layout, identified risks, and recovery planning.
+- [Ubuntu Installation and Post-Install Verification](04-ubuntu-installation-and-post-install.md) — current Ubuntu installation, LVM layout, network configuration, boot troubleshooting, and development environment baseline.
 
 ## Planned Documentation
 

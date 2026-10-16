@@ -9,7 +9,7 @@ This repository contains practical labs, automation scripts, infrastructure expe
 - [x] Initialize the Git repository and publish it to GitHub.
 - [x] Document the initial hardware and storage assessment.
 - [x] Identify storage risks and document a recovery plan.
-- [ ] Complete and verify the clean operating-system installation.
+- [x] Install Ubuntu 26.04.1 LTS and verify the initial system configuration.
 - [ ] Build reproducible Linux administration labs.
 - [ ] Develop automation and containerization projects.
 
@@ -37,7 +37,8 @@ devops-lab/
 ├── .gitignore
 ├── docs/
 │   ├── README.md
-│   └── 03-hardware-and-operating-environment.md
+│   ├── 03-hardware-and-operating-environment.md
+│   └── 04-ubuntu-installation-and-post-install.md
 ├── linux/          # Linux administration labs
 ├── git/            # Git and GitHub exercises
 ├── bash/           # Shell scripting
