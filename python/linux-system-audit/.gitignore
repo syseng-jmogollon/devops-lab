@@ -1,0 +1,10 @@
+# Python virtual environment
+.venv/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+
+# Test and coverage artifacts
+.coverage
+htmlcov/
