@@ -7,6 +7,10 @@ This directory contains technical records supporting the DevOps Lab, including e
 - [Hardware and Operating Environment](03-hardware-and-operating-environment.md) — initial hardware inventory, operating-system details, SSD/HDD health assessment, Btrfs layout, identified risks, and recovery planning.
 - [Ubuntu Installation and Post-Install Verification](04-ubuntu-installation-and-post-install.md) — current Ubuntu installation, LVM layout, network configuration, boot troubleshooting, and development environment baseline.
 
+## Project Decisions
+
+- [Technical Decision Records](DECISIONS.md) — rationale, trade-offs, and review policy for major project decisions.
+
 ## Planned Documentation
 
 Add documents as the corresponding work is performed:
@@ -16,7 +20,6 @@ Add documents as the corresponding work is performed:
 - Networking and service configuration
 - Backup and recovery procedures
 - Docker and Docker Compose deployments
-- Architecture decisions and diagrams
 - Automation and CI/CD implementation reports
 
 ## Documentation Standard
