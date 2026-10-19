@@ -2,13 +2,15 @@
 
 ## Current Progress
 
-Status: foundational setup and documentation are underway.
+Status: Ubuntu installation and baseline documentation completed;
+the first Python system-audit lab has been implemented and verified.
 
 - [x] Initialize the local Git repository and GitHub remote.
 - [x] Publish the initial repository structure.
 - [x] Audit the lab hardware, storage devices, and filesystem.
 - [x] Document storage risks and the recovery plan.
-- [ ] Complete the clean OS installation and verify the resulting system.
+- [x] Install Ubuntu and document the initial system baseline.
+- [ ] Complete the remaining system and development-tool verification.
 - [ ] Add reproducible Linux administration labs.
 - [ ] Build Bash and Python automation exercises.
 - [ ] Implement Docker-based services and document their operation.

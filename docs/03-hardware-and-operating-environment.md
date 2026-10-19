@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document records the hardware, operating-system, storage, and troubleshooting findings from the initial assessment of the DevOps Lab machine. It describes the system before the planned clean Fedora installation.
+This document records the hardware, operating-system, storage, and troubleshooting findings from the initial assessment of the DevOps Lab machine. It describes the system before the clean OS installation. The original plan to install Fedora was later replaced by Ubuntu 26.04.1 LTS with XFCE; the resulting installation is documented in [04-ubuntu-installation-and-post-install.md](04-ubuntu-installation-and-post-install.md).
 
 ## Hardware Identity
 
@@ -53,7 +53,7 @@ The WDC HDD reported SMART failure indicators, including:
 * 526 pending sectors
 * 63,575 reported uncorrectable sectors/errors in the collected SMART output
 
-The HDD is unreliable and must not be used for important data or backups.
+The HDD was unreliable and must not be used for important data or backups. The user has since confirmed that this drive was physically removed from the laptop. The inventory and SMART figures above are historical findings from the initial audit.
 
 ## Filesystem Audit
 
@@ -84,11 +84,7 @@ Zero Btrfs error counters do not establish that the failing HDD is healthy. The 
 
 The user confirmed that important data has been backed up to an external hard drive and that the laptop can be formatted.
 
-**Planned action:** perform a clean Fedora installation on the ADATA SU750 SSD alone, with the failed WDC HDD disconnected. Keep the external backup drive disconnected during installation.
-
-Before confirming partitioning or formatting, verify the selected target by its model and capacity.
-
-This is a planned action, not a completed installation. Afterward, update this document with the resulting Fedora version, partition layout, and verification that the failed HDD is no longer part of the active filesystem.
+**Outcome:** the original Fedora installation plan was superseded. Ubuntu 26.04.1 LTS with XFCE was installed on the ADATA SU750 SSD. The resulting operating system and partition layout are documented in [04-ubuntu-installation-and-post-install.md](04-ubuntu-installation-and-post-install.md). The user has confirmed that the failed WDC HDD was physically removed from the laptop.
 
 ## Lessons Learned
 

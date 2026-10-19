@@ -9,7 +9,8 @@ This repository contains practical labs, automation scripts, infrastructure expe
 - [x] Initialize the Git repository and publish it to GitHub.
 - [x] Document the initial hardware and storage assessment.
 - [x] Identify storage risks and document a recovery plan.
-- [x] Install Ubuntu 26.04.1 LTS and verify the initial system configuration.
+- [x] Install Ubuntu 26.04.1 LTS and document the initial system baseline.
+- [ ] Complete the remaining system and development-tool verification.
 - [ ] Build reproducible Linux administration labs.
 - [ ] Develop automation and containerization projects.
 

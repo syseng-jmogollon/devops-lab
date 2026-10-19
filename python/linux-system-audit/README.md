@@ -68,6 +68,7 @@ The `.venv/` directory is generated locally and must not be committed.
 - Memory and filesystem values change as the system runs.
 - Filesystem measurements refer to `/`, not every mounted filesystem.
 - The script currently targets Linux because it reads `/proc/meminfo`.
+- Automated tests currently cover the memory-information function only.
 
 ## Learning outcomes
 
