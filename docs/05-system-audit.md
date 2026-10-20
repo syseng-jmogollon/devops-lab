@@ -21,8 +21,12 @@ environment for the DevOps lab.
 - VT-x: Reported by the processor.
 - AVX, AVX2 and AES instruction flags: Not present in the collected
   CPU flags.
-- KVM interface verified for the current user; API version 12.
-  Actual VM creation and execution not yet tested.
+- KVM interface verified; API version 12.
+- A TinyCore guest was created and launched successfully during a
+  subsequent virtualization test. It received a DHCP address from the
+  libvirt default NAT network.
+- The test guest was removed after the test; no guest VM is currently
+  registered with libvirt. The test ISO is absent from `~/vms/`.
 
 ## 3. RAM
 
@@ -109,22 +113,41 @@ These are historical readings, not a current health assessment.
 The CPU flags include `vmx`, indicating advertised Intel VT-x support.
 
 The `kvm` and `kvm_intel` kernel modules are loaded. `/dev/kvm` exists,
-and the current user successfully opened the device and queried KVM API
-version 12. This confirms access to the KVM interface, but does not yet
-prove that a virtual machine can be created and run successfully.
+and the KVM API responds with version 12.
 
-QEMU executables, `qemu-img`, `virsh`, `virt-install`, and `virt-manager`
-were not available during the subsequent inventory. The checked QEMU,
-libvirt, and virtinst packages were not installed. No guest virtual
-machine has been launched yet.
+### Installed virtualization stack
+
+The following components were installed after the initial hardware audit:
+
+- QEMU system emulator and utilities: version `10.2.1`.
+- libvirt clients and system daemon: version `12.0.0`.
+- `virt-install`: version `5.1.0`, available at `/usr/bin/virt-install`.
+
+The `libvirtd` service is active and enabled. The persistent libvirt
+`default` network is active and configured for automatic startup.
+
+### Practical VM test
+
+A TinyCore guest was created and launched successfully. During the test,
+it received DHCP address `192.168.122.54` from the default libvirt
+network. The guest and its ISO were removed after the test.
+
+The current `virsh list --all` output shows no registered guest VMs.
+The ISO `~/vms/Core-current.iso` is also absent.
+
+Internet connectivity from inside a guest has not been verified.
+These results demonstrate that a guest could be launched, but do not
+establish that every virtualization workload will perform well on this
+system's 6 GB of RAM.
 
 ## 6. Audit limitations and next checks
 
 - SMBIOS reports four memory positions, but the known physical
   configuration has two slots.
 - The current SMART status of the SSD remains unverified.
-- KVM device availability and current-user access are verified; actual
-  VM creation and execution remain unverified.
-- No software was installed as part of the hardware audit.
-- These findings describe the system at the time of the audit and
-  should be updated if the hardware or software configuration changes.
+- A TinyCore guest launch was verified, but guest Internet connectivity
+  and performance under heavier workloads remain untested.
+- QEMU, libvirt, and `virt-install` were installed after the initial
+  hardware audit; see the virtualization section for current results.
+- These findings describe the system at the time of each observation
+  and should be updated if the hardware or software configuration changes.
