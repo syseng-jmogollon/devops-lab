@@ -96,17 +96,62 @@ should not be represented as an unambiguous manufacturer specification.
 - Root logical volume: `ubuntu-lv`, 100 GiB.
 - Reported unallocated space in the volume group: approximately 374.93 GiB.
 - Swap: `/swap.img`, 4 GiB; previous audit reported zero swap in use.
-- Secondary HDD: The user confirms that the WDC HDD and optical-bay
-  caddy have been physically removed.
+- Defective HDD: The WDC HDD was physically removed.
+- Optical-bay caddy: It was initially removed along with the defective
+  HDD. It was subsequently reused to house the ADATA SU750 SSD after
+  lower SSD temperatures were observed in that configuration.
+- Current SSD placement: The ADATA SU750 remains installed in the
+  optical-bay caddy.
+- The built-in USB Multi-Card reader is detected as a zero-capacity
+  device (`/dev/sdb` in the latest observation). Device names may change
+  across boots or hardware changes.
 
-### Drive health
+### Drive health and thermal observations
 
-`smartmontools` was not installed at the time of the audit, so current
-SMART health and temperature have not been verified.
+`smartmontools` version `7.5-2` is installed. The local `dpkg` log
+records its installation on 2026-10-20 between 19:53:53 and
+19:53:56. The log does not specify a time zone or identify who
+initiated the installation.
 
-A historical report recorded a passing SMART status for the ADATA SSD,
-approximately 8,336 power-on hours and a temperature around 69°C.
-These are historical readings, not a current health assessment.
+The latest observed SSD was `/dev/sda`, identified by model as
+ADATA SU750, with approximately 476.9 GiB reported by `lsblk`.
+
+A 10-minute idle observation on 2026-10-21 recorded temperatures
+of 64°C at the start and 63°C at the end.
+
+The subsequent SMART check, performed at approximately 21:48 on
+2026-10-21 (Caracas time, UTC-04:00), reported:
+- Overall SMART self-assessment: `PASSED`.
+- Power-on hours: 8,592.
+- Reallocated sector count (ID 5): 0.
+- Reallocated event count (ID 196): 0.
+- UDMA CRC error count (ID 199): 0.
+- Temperature (ID 194): 63°C.
+
+Earlier observations recorded temperatures around 69–71°C with the SSD
+in the primary SATA bay. After moving the SSD to the optical-bay caddy,
+observed readings were approximately 63–66°C. This reduction motivated
+the decision to reuse the caddy for the SSD. The comparison is
+observational, not a controlled thermal test, and does not establish
+that the caddy alone caused the temperature reduction.
+
+During the latest 10-minute observation, the block-device counters
+recorded 1,624 sectors read and 10,728 sectors written. Assuming 512-byte
+sectors, this corresponds to approximately 812 KiB read and 5.24 MiB
+written. These counters do not identify which process generated the I/O.
+
+The ADATA SU750 datasheet specifies an operating temperature range
+of 0–70°C. See the [official ADATA SU750 datasheet](https://webapi3.adata.com/storage/downloadfile/datasheet_su750_25_inch_sata_ssd_20230307.pdf).
+The latest observed temperature was within that published range,
+but is elevated for an idle system and leaves limited margin to the
+upper limit. No SMART errors or increase in the listed error counters
+were observed during this check.
+
+Operational decision: close the initial thermal investigation for now
+without further stress tests or configuration changes. Continue normal
+use while monitoring temperature and SMART health. Reopen the
+investigation if the SSD repeatedly reaches or exceeds 70°C, SMART
+indicators deteriorate, or I/O errors or device disconnects occur.
 
 ## 5. Virtualization and CPU capabilities
 
@@ -144,7 +189,9 @@ system's 6 GB of RAM.
 
 - SMBIOS reports four memory positions, but the known physical
   configuration has two slots.
-- The current SMART status of the SSD remains unverified.
+- SSD SMART health and temperature have been checked; see the drive
+  health and thermal observations above. The source of background SSD
+  writes has not been identified.
 - A TinyCore guest launch was verified, but guest Internet connectivity
   and performance under heavier workloads remain untested.
 - QEMU, libvirt, and `virt-install` were installed after the initial
