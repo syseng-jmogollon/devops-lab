@@ -147,6 +147,42 @@ security, maintainability, and learning requirements.
 - A paid service may still be appropriate when it provides a material
   advantage in reliability, support, security, or total cost of ownership.
 
+## ADR-005: Administer libvirt through sudo without group membership
+
+**Status:** Accepted
+
+### Context
+
+Installing `libvirt-daemon-driver-qemu` on 2026-10-20 added the sole member
+of the `sudo` group to the `libvirt` group. The package postinstall script
+calls `add_users_groups()` during the `configure` step, which adds every
+`sudo` member to `libvirt`. Membership in `libvirt` allows managing virtual
+machines without `sudo`, which is a high level of privilege on the host.
+
+### Decision
+
+Administer libvirt through `sudo virsh`. The administrative account is not a
+member of the `libvirt` group. The membership added by the package was
+removed on 2026-10-27.
+
+### Rationale
+
+- The lab plan already specifies `sudo virsh`.
+- Each privileged action is explicit and recorded in the `sudo` log.
+- Avoids granting privileges equivalent to root without a deliberate decision.
+### Consequences and limitations
+
+- Every libvirt command requires `sudo`, which is less convenient.
+- Reinstalling or upgrading `libvirt-daemon-driver-qemu` runs the postinstall
+  script again and may restore the membership. Check `getent group libvirt`
+  after any update to that package.
+- If the lab later needs non-privileged VM management, that decision must be
+  recorded in a new ADR, with its privilege trade-off.
+### Review
+
+Reconsider this decision if the workflow requires unprivileged management of
+virtual machines, or if libvirt starts hosting non-lab workloads.
+
 ## Review policy
 
 These records document decisions and their rationale; they do not

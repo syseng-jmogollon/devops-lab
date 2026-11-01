@@ -10,7 +10,10 @@ This repository contains practical labs, automation scripts, infrastructure expe
 - [x] Document the initial hardware and storage assessment.
 - [x] Identify storage risks and document a recovery plan.
 - [x] Install Ubuntu 26.04.1 LTS and document the initial system baseline.
+- [x] Install Docker Engine and verify it with a functional test.
+- [x] Install QEMU/KVM and libvirt and verify a test virtual machine.
 - [ ] Complete the remaining system and development-tool verification.
+- [ ] Verify Docker Compose with a persistent multi-container project.
 - [ ] Build reproducible Linux administration labs.
 - [ ] Develop automation and containerization projects.
 

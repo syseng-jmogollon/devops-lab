@@ -4,13 +4,18 @@
 
 Status: Ubuntu installation and baseline documentation completed;
 the first Python system-audit lab has been implemented and verified.
+Docker Engine and the QEMU/KVM virtualization stack have been installed
+and functionally tested.
 
 - [x] Initialize the local Git repository and GitHub remote.
 - [x] Publish the initial repository structure.
 - [x] Audit the lab hardware, storage devices, and filesystem.
 - [x] Document storage risks and the recovery plan.
 - [x] Install Ubuntu and document the initial system baseline.
+- [x] Install Docker Engine and verify it with a `hello-world` functional test.
+- [x] Install QEMU/KVM and libvirt and verify a test virtual machine launch.
 - [ ] Complete the remaining system and development-tool verification.
+- [ ] Verify Docker Compose with a persistent multi-container project.
 - [ ] Add reproducible Linux administration labs.
 - [ ] Build Bash and Python automation exercises.
 - [ ] Implement Docker-based services and document their operation.
