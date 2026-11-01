@@ -170,6 +170,7 @@ removed on 2026-10-27.
 - The lab plan already specifies `sudo virsh`.
 - Each privileged action is explicit and recorded in the `sudo` log.
 - Avoids granting privileges equivalent to root without a deliberate decision.
+
 ### Consequences and limitations
 
 - Every libvirt command requires `sudo`, which is less convenient.
@@ -178,6 +179,7 @@ removed on 2026-10-27.
   after any update to that package.
 - If the lab later needs non-privileged VM management, that decision must be
   recorded in a new ADR, with its privilege trade-off.
+
 ### Review
 
 Reconsider this decision if the workflow requires unprivileged management of
