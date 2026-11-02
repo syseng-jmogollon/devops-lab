@@ -21,7 +21,6 @@ and functionally tested.
 - [ ] Implement Docker-based services and document their operation.
 - [ ] Develop an integrated, end-to-end portfolio project.
 
-Checklist items should be marked complete only after the work has been performed and verified. Update this section as milestones are achieved.
 
 
 ## Phase 1 — Linux Foundations

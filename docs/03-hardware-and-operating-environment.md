@@ -57,7 +57,7 @@ The HDD was unreliable and must not be used for important data or backups. The u
 
 ## Filesystem Audit
 
-The Fedora Btrfs filesystem has label `fedora` and UUID `9d562824-a839-4812-bf94-f7c3a6fe11b1`. It spans two devices.
+The Fedora Btrfs filesystem had the label `fedora` and spanned two devices.
 
 | Device   | Partition         |       Size | Allocated |
 | -------- | ----------------- | ---------: | --------: |

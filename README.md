@@ -42,18 +42,16 @@ devops-lab/
 ├── docs/
 │   ├── README.md
 │   ├── 03-hardware-and-operating-environment.md
-│   └── 04-ubuntu-installation-and-post-install.md
-├── linux/          # Linux administration labs
-├── git/            # Git and GitHub exercises
-├── bash/           # Shell scripting
-├── python/         # Python automation
-├── networking/     # Networking labs
-├── docker/         # Containerization
-├── ansible/        # Configuration management
-├── terraform/      # Infrastructure as Code
-├── aws/            # Cloud engineering
-├── kubernetes/     # Container orchestration
-└── projects/       # Integrated portfolio projects
+│   ├── 04-ubuntu-installation-and-post-install.md
+│   ├── 05-system-audit.md
+│   └── DECISIONS.md
+└── python/
+    └── linux-system-audit/
+        ├── .gitignore
+        ├── README.md
+        ├── system_audit.py
+        └── tests/
+            └── test_system_audit.py
 ```
 
 Directories will be added as practical work is developed.

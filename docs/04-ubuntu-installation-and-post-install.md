@@ -47,26 +47,17 @@ disconnected; verify its physical status separately if necessary.
 
 ## 4. Network Configuration
 
-| Component | Observed state |
-|---|---|
-| NetworkManager | Active |
-| systemd-networkd | Active |
-| systemd-resolved | Active |
-| Wi-Fi interface | `wlp2s0`, connected |
-| Wi-Fi IPv4 address | `192.168.50.148` at verification time |
-| Ethernet interface | `enp4s0`, unavailable |
-| VPN interface | `proton`, WireGuard |
-| Main IPv4 default route | Via `192.168.50.1` on `wlp2s0` |
+At the time of verification, NetworkManager, systemd-networkd, and
+systemd-resolved were active. NetworkManager reported the Wi-Fi
+connection as active.
 
-NetworkManager reports Wi-Fi and the Proton WireGuard connection as active.
-The main routing table alone does not establish whether all traffic is
-routed through the VPN. Policy routing and VPN behavior require separate
-verification.
+A VPN connection was active, but the collected routing information did
+not establish whether all traffic was routed through it. VPN routing and
+DNS behavior require separate verification.
 
-The home router was configured to use Quad9 DNS over TLS. After that
-configuration, the user reported being able to reach the Proton VPN domain.
-This is an observed improvement, not proof that DNS was the only filtering
-mechanism involved.
+Local interface names, IP addresses, default-gateway details, VPN
+identifiers, and router-specific DNS configuration are omitted from this
+public record.
 
 ## 5. Boot Troubleshooting
 
